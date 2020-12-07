@@ -53,7 +53,9 @@ $ samtools sort control_UxuR.bam -o control_UxuR.sorted.bam
 #### Найдите пики с помощью MACS2 (подсказки тут - https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html) 
 ```
 $ mkdir macs2
-$ macs2 callpeak -t ChIP_ExuR.bam -c control_ExuR.bam -f BAM -g hs -n test -B -q 0.01
+$ macs2 callpeak -t ChIP_ExuR.sorted.bam -c control_ExuR.sorted.bam -f BAM -g hs -n exur -B -q 0.01 --nomodel --shiftsize 100
+$ macs2 callpeak -t ChIP_UxuR_1.sorted.bam -c control_UxuR.sorted.bam -f BAM -g hs -n uxur1 -B -q 0.01 --nomodel --shiftsize 100
+$ macs2 callpeak -t ChIP_UxuR_2.sorted.bam -c control_UxuR.sorted.bam -f BAM -g hs -n uxur2 -B -q 0.01 --nomodel --shiftsize 100
 ```
 #### Гомологичны ли белки ExuR и UxuR? 
 #### В каком эксперименте есть проблемы, с чем они могут быть связаны и как их решить? 
