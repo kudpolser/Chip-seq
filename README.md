@@ -36,9 +36,9 @@ $ bowtie -S e_coli control_UxuR.fastq control_UxuR.sam
 #### Найдите пики с помощью MACS2 (подсказки тут - https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html) 
 ```
 $ mkdir macs2
-$ macs2 callpeak -t ChIP_ExuR.sam -c control_ExuR.sam -f BAM -g 4641652 -n exur -B -q 0.01 --nomodel --shiftsize 100
-$ macs2 callpeak -t ChIP_UxuR_1.sam -c control_UxuR.sam -f BAM -g 4641652 -n uxur1 -B -q 0.01 --nomodel --shiftsize 100
-$ macs2 callpeak -t ChIP_UxuR_2.sam -c control_UxuR.sam -f BAM -g 4641652 -n uxur2 -B -q 0.01 --nomodel --shiftsize 100
+$ macs2 callpeak -t ChIP_ExuR.sam -c control_ExuR.sam -g 4641652 -n exur -B -q 0.01 --nomodel --shiftsize 100
+$ macs2 callpeak -t ChIP_UxuR_1.sam -c control_UxuR.sam -g 4641652 -n uxur1 -B -q 0.01 --nomodel --shiftsize 100
+$ macs2 callpeak -t ChIP_UxuR_2.sam -c control_UxuR.sam -g 4641652 -n uxur2 -B -q 0.01 --nomodel --shiftsize 100
 ```
 #### Гомологичны ли белки ExuR и UxuR? 
 #### В каком эксперименте есть проблемы, с чем они могут быть связаны и как их решить? 
