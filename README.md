@@ -33,29 +33,12 @@ $ bowtie -S e_coli control_UxuR.fastq control_UxuR.sam
 - control_ExuR: reads that failed to align: 1850909 (9.64%)
 - control_UxuR: reads that failed to align: 7587855 (33.17%)
 
-```
-$ samtools view -S -b ChIP_ExuR.sam > ChIP_ExuR.bam
-$ samtools sort ChIP_ExuR.bam -o ChIP_ExuR.sorted.bam
-
-$ samtools view -S -b ChIP_UxuR_1.sam > ChIP_UxuR_1.bam
-$ samtools sort ChIP_UxuR_1.bam -o ChIP_UxuR_1.sorted.bam
-
-$ samtools view -S -b ChIP_UxuR_2.sam > ChIP_UxuR_2.bam
-$ samtools sort ChIP_UxuR_2.bam -o ChIP_UxuR_2.sorted.bam
-
-$ samtools view -S -b control_ExuR.sam > control_ExuR.bam
-$ samtools sort control_ExuR.bam -o control_ExuR.sorted.bam
-
-$ samtools view -S -b control_UxuR.sam > control_UxuR.bam
-$ samtools sort control_UxuR.bam -o control_UxuR.sorted.bam
-```
-
 #### Найдите пики с помощью MACS2 (подсказки тут - https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html) 
 ```
 $ mkdir macs2
-$ macs2 callpeak -t ChIP_ExuR.sorted.bam -c control_ExuR.sorted.bam -f BAM -g 4641652 -n exur -B -q 0.01 --nomodel --shiftsize 100
-$ macs2 callpeak -t ChIP_UxuR_1.sorted.bam -c control_UxuR.sorted.bam -f BAM -g 4641652 -n uxur1 -B -q 0.01 --nomodel --shiftsize 100
-$ macs2 callpeak -t ChIP_UxuR_2.sorted.bam -c control_UxuR.sorted.bam -f BAM -g 4641652 -n uxur2 -B -q 0.01 --nomodel --shiftsize 100
+$ macs2 callpeak -t ChIP_ExuR.sam -c control_ExuR.sam -f BAM -g 4641652 -n exur -B -q 0.01 --nomodel --shiftsize 100
+$ macs2 callpeak -t ChIP_UxuR_1.sam -c control_UxuR.sam -f BAM -g 4641652 -n uxur1 -B -q 0.01 --nomodel --shiftsize 100
+$ macs2 callpeak -t ChIP_UxuR_2.sam -c control_UxuR.sam -f BAM -g 4641652 -n uxur2 -B -q 0.01 --nomodel --shiftsize 100
 ```
 #### Гомологичны ли белки ExuR и UxuR? 
 #### В каком эксперименте есть проблемы, с чем они могут быть связаны и как их решить? 
